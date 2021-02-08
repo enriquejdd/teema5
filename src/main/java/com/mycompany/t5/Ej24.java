@@ -62,7 +62,10 @@ public class Ej24 {
         System.out.print("Lista 3:");
         Ej24.imprimirLista(lista3);
 
-        ArrayList<Integer> lista4 = new ArrayList<>();
+//        ArrayList<Integer> lista4 = lista1;
+//        
+//        Ej24.generarLista4(lista1, lista2, lista4);
+//        Ej24.imprimirLista(lista4);
 
     }
 
@@ -78,35 +81,31 @@ public class Ej24 {
         e.forEach(u->System.out.print("\t" + u));
     }
     
-//    public Ej24 clonar(ArrayList e){
-//        
-//    }
-
-    
     public static void generarLista3(ArrayList a, ArrayList b, ArrayList c) {
-        // Clonar la lista 1 y borramos los numeros que si estan en la lista 2
+        int contador=0;
 
         for (int i = 0; i < a.size(); i++) {
-            for (int j = 0; j < b.size(); j++) {
-                if (a.get(i).equals(b.get(i))) {
-                    c.remove(a.get(i));
-                } 
-            }
+            if (!b.contains(a.get(i))) {
+                    c.add(a.get(i));
+                }
+            
+//            if(contador == b.size()){
+//                c.add(a.get(i));
+//            }
+//            contador = 0;
         }
     }
 
-//    public static void generarLista4(ArrayList a, ArrayList b, ArrayList c) {  
-//
-//        for (int i = 0; i < a.size(); i++) {
-//            if (a.get(i) % 2 == 0) {
-//                c.add(a.get(i));
-//            }
-//        }
-//
-//        for (int i = 0; i < b.size(); i++) {
-//            if (b.get(i) % 2 == 1) {
-//                c.add(b.get(i));
-//            }
-//        }
-//    }
+    public static void generarLista4(ArrayList a, ArrayList b, ArrayList c) {
+        // Clonar la lista 1 y borramos los numeros que si estan en la lista 2
+               
+
+        for (int i = 0; i < a.size(); i++) {
+            
+                if (a.get(i).equals(b.get(i))) {
+                    c.remove(a.get(i));
+                } 
+            
+        }
+    }
 }
