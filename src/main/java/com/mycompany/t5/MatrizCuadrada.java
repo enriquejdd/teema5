@@ -237,8 +237,8 @@ public class MatrizCuadrada {
                 for (int h = 0; h < matriz.length; h++) {
                     for (int k = 0; k < matriz[i].length; k++) {
                         if (matriz[h][k] == num) {
-                            // EN JAVA \033[0;1m PERMITE QUE SE VEA EN "negrita" EL TEXTO.
-                            System.out.println("\033[0;1m" + matriz[h][k] + "\t\033[0m");
+                            // EN JAVA \u001B[31m PERMITE QUE SE VEA EN ROJO EL TEXTO.
+                            System.out.println("\u001B[31m" + matriz[h][k] + "\t\u001B[0m");
                         } else {
                             System.out.print(matriz[h][k] + "\t");
                         }
