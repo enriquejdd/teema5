@@ -13,5 +13,5 @@ package com.mycompany.t5;
  * @author enrique
  */
 public class Ej20 {
-    int[][] avion = new int[25][4];
+
 }
