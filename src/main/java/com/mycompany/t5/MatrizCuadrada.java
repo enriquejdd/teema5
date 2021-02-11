@@ -63,77 +63,93 @@ public class MatrizCuadrada {
             }
             // AL TENER YA UN VALOR MAS ALTO LO COMPROBAMOS CON LAS OTRAS 2 OPCIONES DE LA COLUMNA DEPENDIENDO SU ITERACIÓN
             // EN ESTE CASO ES PARA COMPROBAR EL MAYOR DE LA PRIMERA COLUMNA
-            if (i == 0) {
-                // RECORREMOS NUEVAMENTE EL ARRAY
-                for (int h = 0; h < matriz.length; h++) {
-                    // CUANDO SEA LA SEGUNDA COLUMNA LA RECORREREMOS Y GUARDAREMOS SU VALOR MAS ALTO
-                    if (h == 1) {
-                        for (int k = 0; k < matriz[i].length; k++) {
-                            // GUARDAMOS EL VALOR QUE SE ENCUENTRE EN LA MISMA COLUMNA QUE EL VALRO MÁS ALTO
-                            valor2 = matriz[h][valorJ];
-                        }
-                    }
-                    // CUANDO SEA LA TERCERA COLUMNA LA RECORREREMOS Y GUARDAREMOS SU VALOR MAS ALTO
-                    if (h == 2) {
-                        for (int k = 0; k < matriz[i].length; k++) {
-                            // GUARDAMOS EL VALOR QUE SE ENCUENTRE EN LA MISMA COLUMNA QUE EL VALRO MÁS ALTO
-                            valor3 = matriz[h][valorJ];
-                        }
-                    }
-                }
-                // COMPROBAMOS SI EL VALOR MAYOR DE LA PRIMERA COLUMNA SEA MENOR QUE EL DE LA SEGUNDA Y DE LA TERCERA
-                if (numMayor < valor2 && numMayor < valor3) {
-                    num = numMayor;
-                }
+            // AL TENER YA UN VALOR MAS ALTO LO COMPROBAMOS CON LAS OTRAS 2 OPCIONES DE LA COLUMNA DEPENDIENDO SU ITERACIÓN
+            switch (i) {
+                // EN ESTE CASO ES PARA COMPROBAR EL MAYOR DE LA PRIMERA COLUMNA
+                case 0:
+                    // RECORREMOS NUEVAMENTE EL ARRAY
+                    for (int h = 0; h < matriz.length; h++) {
 
-            } // EN ESTE CASO ES PARA COMPROBAR EL MAYOR DE LA SEGUNDA COLUMNA
-            if (i == 1) {
-                // RECORREMOS NUEVAMENTE EL ARRAY
-                for (int h = 0; h < matriz.length; h++) {
-                    // CUANDO SEA LA PRIMERA COLUMNA LA RECORREREMOS Y GUARDAREMOS SU VALOR MAS ALTO
-                    if (h == 0) {
-                        for (int k = 0; k < matriz[i].length; k++) {
-                            // GUARDAMOS EL VALOR QUE SE ENCUENTRE EN LA MISMA COLUMNA QUE EL VALRO MÁS ALTO
-                            valor2 = matriz[h][valorJ];
+                        switch (h) {
+                            // CUANDO SEA LA SEGUNDA COLUMNA LA RECORREREMOS Y GUARDAREMOS SU VALOR MAS ALTO
+                            case 1:
+                                for (int k = 0; k < matriz[i].length; k++) {
+                                    // GUARDAMOS EL VALOR QUE SE ENCUENTRE EN LA MISMA COLUMNA QUE EL VALRO MÁS ALTO
+                                    valor2 = matriz[h][valorJ];
+                                }
+                                break;
+                            // CUANDO SEA LA TERCERA COLUMNA LA RECORREREMOS Y GUARDAREMOS SU VALOR MAS ALTO
+                            case 2:
+                                for (int k = 0; k < matriz[i].length; k++) {
+                                    // GUARDAMOS EL VALOR QUE SE ENCUENTRE EN LA MISMA COLUMNA QUE EL VALRO MÁS ALTO
+                                    valor3 = matriz[h][valorJ];
+                                }
+                                break;
                         }
                     }
-                    if (h == 2) {
-                        // CUANDO SEA LA TERCERA COLUMNA LA RECORREREMOS Y GUARDAREMOS SU VALOR MAS ALTO
-                        for (int k = 0; k < matriz[i].length; k++) {
-                            // GUARDAMOS EL VALOR QUE SE ENCUENTRE EN LA MISMA COLUMNA QUE EL VALRO MÁS ALTO
-                            valor3 = matriz[h][valorJ];
+                    // COMPROBAMOS SI EL VALOR MAYOR DE LA PRIMERA COLUMNA SEA MENOR QUE EL DE LA SEGUNDA Y DE LA TERCERA
+                    if (numMayor < valor2 && numMayor < valor3) {
+                        num = numMayor;
+                    }
+                    break;
+                // CUANDO SEA LA SEGUNDA COLUMNA LA RECORREREMOS Y GUARDAREMOS SU VALOR MAS ALTO
+                case 1:
+                    // RECORREMOS NUEVAMENTE EL ARRAY
+                    for (int h = 0; h < matriz.length; h++) {
+                        switch (h) {
+                            // CUANDO SEA LA SEGUNDA COLUMNA LA RECORREREMOS Y GUARDAREMOS SU VALOR MAS ALTO
+                            case 0:
+                                for (int k = 0; k < matriz[i].length; k++) {
+                                    // GUARDAMOS EL VALOR QUE SE ENCUENTRE EN LA MISMA COLUMNA QUE EL VALRO MÁS ALTO
+                                    valor2 = matriz[h][valorJ];
+                                }
+                                break;
+                            // CUANDO SEA LA TERCERA COLUMNA LA RECORREREMOS Y GUARDAREMOS SU VALOR MAS ALTO
+                            case 2:
+                                for (int k = 0; k < matriz[i].length; k++) {
+                                    // GUARDAMOS EL VALOR QUE SE ENCUENTRE EN LA MISMA COLUMNA QUE EL VALRO MÁS ALTO
+                                    valor3 = matriz[h][valorJ];
+                                }
+                                break;
                         }
                     }
-                }
-                // COMPROBAMOS SI EL VALOR MAYOR DE LA PRIMERA COLUMNA SEA MENOR QUE EL DE LA PRIMERA Y DE LA TERCERA
-                if (numMayor < valor2 && numMayor < valor3) {
-                    num = numMayor;
-                }
-            } // EN ESTE CASO ES PARA COMPROBAR EL MAYOR DE LA TERCERA COLUMNA
-            if (i == 2) {
-                // RECORREMOS NUEVAMENTE EL ARRAY
-                for (int h = 0; h < matriz.length; h++) {
-                    // CUANDO SEA LA PRIMERA COLUMNA LA RECORREREMOS Y GUARDAREMOS SU VALOR MAS ALTO
-                    if (h == 0) {
-                        for (int k = 0; k < matriz[i].length; k++) {
-                            // GUARDAMOS EL VALOR QUE SE ENCUENTRE EN LA MISMA COLUMNA QUE EL VALRO MÁS ALTO
-                            valor2 = matriz[h][valorJ];
-                        }
+                    // COMPROBAMOS SI EL VALOR MAYOR DE LA PRIMERA COLUMNA SEA MENOR QUE EL DE LA SEGUNDA Y DE LA TERCERA
+                    if (numMayor < valor2 && numMayor < valor3) {
+                        num = numMayor;
                     }
-                    // CUANDO SEA LA SEGUNDA COLUMNA LA RECORREREMOS Y GUARDAREMOS SU VALOR MAS ALTO
-                    if (h == 1) {
-                        for (int k = 0; k < matriz[i].length; k++) {
-                            // GUARDAMOS EL VALOR QUE SE ENCUENTRE EN LA MISMA COLUMNA QUE EL VALRO MÁS ALTO
-                            valor3 = matriz[h][valorJ];
+                    break;
+
+                case 2:
+
+                    // RECORREMOS NUEVAMENTE EL ARRAY
+                    for (int h = 0; h < matriz.length; h++) {
+                        // CUANDO SEA LA PRIMERA COLUMNA LA RECORREREMOS Y GUARDAREMOS SU VALOR MAS ALTO
+                        switch (h) {
+                            // CUANDO SEA LA PRIMERA COLUMNA LA RECORREREMOS Y GUARDAREMOS SU VALOR MAS ALTO
+                            case 0:
+                                for (int k = 0; k < matriz[i].length; k++) {
+                                    // GUARDAMOS EL VALOR QUE SE ENCUENTRE EN LA MISMA COLUMNA QUE EL VALRO MÁS ALTO
+                                    valor2 = matriz[h][valorJ];
+                                }
+                                break;
+                            // CUANDO SEA LA SEGUNDA COLUMNA LA RECORREREMOS Y GUARDAREMOS SU VALOR MAS ALTO
+                            case 1:
+                                for (int k = 0; k < matriz[i].length; k++) {
+                                    // GUARDAMOS EL VALOR QUE SE ENCUENTRE EN LA MISMA COLUMNA QUE EL VALRO MÁS ALTO
+                                    valor3 = matriz[h][valorJ];
+                                }
+                                break;
                         }
+
                     }
-                }
-                // COMPROBAMOS SI EL VALOR MAYOR DE LA TERCERA COLUMNA SEA MENOR QUE EL DE LA PRIMERA Y DE LA SEGUNDA
-                if (numMayor < valor2 && numMayor < valor3) {
-                    num = numMayor;
-                }
-            } // DESPUES DE COMPROBAR EL NÚMERO QUE BUSCABAMOS MOSTRAREMOS LA TABLA CON EL NÚMERO EN NEGRITA PARA SOBRESALTARLO.
-            
+                    // COMPROBAMOS SI EL VALOR MAYOR DE LA TERCERA COLUMNA SEA MENOR QUE EL DE LA PRIMERA Y DE LA SEGUNDA
+                    if (numMayor < valor2 && numMayor < valor3) {
+                        num = numMayor;
+                    }
+                    break;
+            }
+
+            // DESPUES DE COMPROBAR EL NÚMERO QUE BUSCABAMOS MOSTRAREMOS LA TABLA CON EL NÚMERO EN NEGRITA PARA SOBRESALTARLO.
             if (i + 1 == matriz.length) {
                 for (int h = 0; h < matriz.length; h++) {
                     for (int k = 0; k < matriz[i].length; k++) {
