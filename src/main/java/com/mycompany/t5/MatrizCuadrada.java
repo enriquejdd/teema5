@@ -13,7 +13,7 @@ public class MatrizCuadrada {
 
     public static void main(String[] args) {
         int[][] matriz = {{15, 7, 9}, {5, 15, 17}, {1, 2, 3}};
-        int[][] matriz2 = {{15, 7, 9}, {1, 2, 3}, {5, 15, 17}};
+        int[][] matriz2 = {{15, 7, 9}, {5, 15, 17}, {1, 2, 3}, {5, 15, 17}, {5, 15, 17}, {1, 2, 3}};
 
         System.out.println("MOSTRAMOS LA MATRIZ");
         recorrerMatrizChar(matriz);
@@ -28,7 +28,7 @@ public class MatrizCuadrada {
         recorrerMatrizChar(matriz2);
         System.out.println("");
         System.out.println("MOSTRAMOS LA MATRIZ Y EL NÚMERO REMARCADO");
-        indicarMayor(matriz2);
+        buscarMayor(matriz2);
 
     }
 
@@ -155,7 +155,7 @@ public class MatrizCuadrada {
                     for (int k = 0; k < matriz[i].length; k++) {
                         if (matriz[h][k] == num) {
                             // EN JAVA \u001B[31m PERMITE QUE SE VEA EN ROJO EL TEXTO.
-                            System.out.println("\u001B[31m" + matriz[h][k] + "\t\u001B[0m");
+                            System.out.print("\u001B[31m" + matriz[h][k] + "\t\u001B[0m");
                         } else {
                             System.out.print(matriz[h][k] + "\t");
                         }
@@ -169,5 +169,59 @@ public class MatrizCuadrada {
         }
         System.out.println("");
         System.out.println("El número mayor de su fila y menor de su columna es el: " + num);
+    }
+
+    // IDEA CREAR UN FOR QUE RECORRA EL ARRAY, GUARDE EL VALOR MAYOR Y SU POSICION. DENTRO DEL MISMO FOR LO VUELVA A RECORRER PERO ESTA VEZ BUSCANDO LA POSICION COGIDA ANTERIORMENTE 
+    // SI EL NUÚMERO ES MENOR QUE EL MAYOR DE LA OTRA FILA SUMARA 1 AL POS. SI POS LLEGA A SER IGUAL DE GRANDE QUE EL TAM DEL ARRAY SIGNIFICA QUE ES EL MENOR DE LA COLUMNA Y DEBE DE MARCARLO EN ROJO
+    // QUE LO COMPRUEBE EN CADA UNA DE LAS FILAS PARA VER SI HAY MÁS DE UN NÚMERO MARCADO EN EL ARRAY CUADRADO.
+    public static void buscarMayor(int[][] matriz) {
+        int lugarNumMayor = 0;
+        int pos = 0;
+        int mayor = 0;
+        int numero = 0;
+        int num = 0;
+
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                numero = matriz[i][j];
+                if (numero > mayor) {
+                    mayor = numero;
+                    lugarNumMayor = j;
+                }
+            }
+
+            for (int k = 0; k < matriz.length; k++) {
+                for (int l = 0; l < matriz[k].length; l++) {
+                    if (matriz[k][lugarNumMayor] > mayor) {
+                        pos++;
+                    }
+                    if (pos == matriz.length) {
+                        num = mayor;
+                    }
+                }
+
+            }
+
+            if (i + 1 == matriz.length) {
+                for (int h = 0; h < matriz.length; h++) {
+                    for (int a = 0; a < matriz[i].length; a++) {
+                        if (matriz[h][a] == num) {
+                            // EN JAVA \u001B[31m PERMITE QUE SE VEA EN ROJO EL TEXTO.
+                            System.out.print("\u001B[31m" + matriz[h][a] + "\t\u001B[0m");
+                        } else {
+                            System.out.print(matriz[h][a] + "\t");
+                        }
+
+                    }
+                    System.out.println("");
+                }
+            } // EN CADA REPETICION VOLVEMOS A 0 EL VALOR MÁS ALTO Y EL VALOR DE J
+            lugarNumMayor = 0;
+            mayor = 0;
+            pos = 0;
+        }
+        System.out.println("");
+        System.out.println("El número mayor de su fila y menor de su columna es el: " + num);
+
     }
 }
